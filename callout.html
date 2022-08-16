@@ -1,11 +1,11 @@
 <style>
   #callout {
-    background: #F9F9F9;
+	  background: {{ .Get "bg" | default "#F9F9F9" }};
     padding: 1.5em 1.25em;
     border-radius: 3px;
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin: 20px auto;
   }
   #callout-inner {
     margin-left: 1em;
@@ -20,8 +20,8 @@
   }
 </style>
 <div id="callout" style="">
-  <div>{{ .Get "emoji" }}</div>
+  <div>{{ .Get "emoji" | default "💡" }}</div>
 	<div id="callout-inner">
-    {{ .Get "text" }}
+    {{- .Inner -}}
   </div>
 </div>
